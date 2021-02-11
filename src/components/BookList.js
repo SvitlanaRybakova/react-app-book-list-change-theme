@@ -1,18 +1,8 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext'
 
-class BookList extends Component {
-  // так как использую класс, другой метод передачи контекста
-  // contextType обязательное навзвание, ему присваиваю переменную в которой есть контекст
-
-  static contextType = ThemeContext;
-
-  render() {
-
-    // показывает доступ к контексту через contextType
-    // console.log(this.context)
-    // dustructuring
-    const { isLightTheme, light, dark } = this.context;
+function BookList(){
+    const { isLightTheme, light, dark } = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
 
     return (
@@ -26,7 +16,5 @@ class BookList extends Component {
 
     )
 
-
-  }
 }
 export default BookList;
